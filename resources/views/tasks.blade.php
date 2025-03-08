@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container mt-4">
-        <h1>Task List App</h1>
+        <h1>Task List</h1>
         <div class="offset-md-2 col-md-8">
             <div class="card">
                 @if (isset($task))

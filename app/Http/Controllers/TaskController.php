@@ -4,19 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Task;
 
 class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = DB::table('tasks')->get();
+        //$tasks = DB::table('tasks')->get();
+        $tasks = Task::all();
         return view('tasks', compact('tasks'));
     }
 
     public function create()
     {
         $task_name = $_POST['name'];
-        DB::table('tasks')->insert(['name' => $task_name]);
+        //DB::table('tasks')->insert(['name' => $task_name]);
+        $task = new Task;
+        $task->name = $task_name;
+        $task->save();
         return redirect()->back();
     }
 

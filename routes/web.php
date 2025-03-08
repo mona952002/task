@@ -54,15 +54,15 @@ Route::post('edit/{id}', [TaskController::class, 'edit']);
 Route::post('update', [TaskController::class, 'update']);
 
 // Users
-Route::get('users', [UserController::class, 'index']);
+Route::get('users', [UserController::class, 'indexing']);
 
-Route::post('create', [UserController::class, 'create']);
+Route::post('creating', [UserController::class, 'creating']);
 
-Route::post('delete/{id}', [UserController::class, 'destroy']);
+Route::post('deleting/{id}', [UserController::class, 'destroing']);
 
-Route::post('edit/{id}', [UserController::class, 'edit']);
+Route::post('editing/{id}', [UserController::class, 'editing']);
 
-Route::post('update', [UserController::class, 'update']);
+Route::post('updating', [UserController::class, 'updating']);
 
 Route::get('app', function () {
     return view('layouts.app');

@@ -10,7 +10,7 @@
                     </div>
                     <div class="card-body">
                         <!-- Update user Form -->
-                        <form action="{{ url('update') }}" method="POST">
+                        <form action="{{ url('updating') }}" method="POST">
                             @csrf
                             <input type="hidden" name="id" value="{{ $user->id }}">
                             <!-- user Name -->
@@ -44,7 +44,7 @@
                     </div>
                     <div class="card-body">
                         <!-- New user Form -->
-                        <form action="create" method="POST">
+                        <form action="creating" method="POST">
                             @csrf
                             <!-- user Name -->
                             <div class="mb-3">
@@ -92,13 +92,13 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>
-                                        <form action="/delete/{{ $user->id }}" method="POST" class="d-inline">
+                                        <form action="/deleting/{{ $user->id }}" method="POST" class="d-inline">
                                             @csrf
                                             <button type="submit" class="btn btn-danger">
                                                 <i class="fa fa-trash me-2"></i>Delete
                                             </button>
                                         </form>
-                                        <form action="/edit/{{ $user->id }}" method="POST" class="d-inline">
+                                        <form action="/editing/{{ $user->id }}" method="POST" class="d-inline">
                                             @csrf
                                             <button type="submit" class="btn btn-info">
                                                 <i class="fa fa-info me-2"></i>Edit
