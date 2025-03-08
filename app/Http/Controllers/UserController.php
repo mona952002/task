@@ -10,7 +10,8 @@ class UserController extends Controller
 {
     public function indexing()
     {
-        $users = DB::table('users')->get();
+        //$users = DB::table('users')->get();
+        $users = User::all();
         return view('users', compact('users'));
     }
 
@@ -19,11 +20,16 @@ class UserController extends Controller
         $user_name = $_POST['name'];
         $user_email = $_POST['email'];
         $user_password = $_POST['password'];
-        DB::table('users')->insert([
+        /*DB::table('users')->insert([
             'name' => $user_name,
             'email' => $user_email,
             'password' => $user_password,
-        ]);
+        ]);*/
+        $user = new User;
+        $user->name = $user_name;
+        $user->email = $user_email;
+        $user->password = $user_password;
+        $user->save();
         return redirect()->back();
     }
 
